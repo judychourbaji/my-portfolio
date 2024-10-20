@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-left">
+            <i class="fas fa-briefcase"></i> <!-- You can replace this icon with your own -->
+            <span>Portfolio</span>
+        </div>
+        <nav class="header-right">
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <h1>Judy Chourbaji</h1>
+        <section id="skills">
+            <h2>What I Do</h2>
+            <div class="skills-container">
+                <div class="skills-line">
+                    <div class="skill-card">
+                        <i class="fas fa-lightbulb"></i>
+                        <h3>Ideation</h3>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fas fa-cogs"></i>
+                        <h3>Prototyping</h3>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fas fa-users"></i>
+                        <h3>User Research</h3>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fas fa-code"></i>
+                        <h3>Programming</h3>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fas fa-pencil-ruler"></i>
+                        <h3>CAD</h3>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fas fa-check"></i>
+                        <h3>Validation Testing</h3>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fas fa-drafting-compass"></i>
+                        <h3>Product Renders</h3>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Branding</h3>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fas fa-calculator"></i>
+                        <h3>Engineering Analysis</h3>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fas fa-paint-brush"></i>
+                        <h3>Graphic Design</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>Welcome to my project showcase!</h2>
+        <p>
+            I'm a second year student of MEng Design Engineering at Imperial College London, 
+            interested in exploring how Engineering and Design can help reshape and contribute to a better world. 
+            I want to solve problems, create elegant solutions, learn, and make a difference. As I think of new 
+            ideas, compete in hackathons, and complete more challenging coursework, this page will grow.
+        </p>
+    </section>
+
+    <section id="projects">
+        <h2>Take a look at my work</h2>
+        <div class="project-grid">
+          
+          <!-- Project 1 -->
+          <div class="project-item">
+            <a href="project1.html">
+              <img src="kewbot_main.jpg" alt="KewBot Project" class="project-image">
+              <div class="project-info">
+                <h3>KewBot</h3>
+                <p class="project-subtitle">Tsinghua University Summer School</p>
+              </div>
+            </a>
+          </div>
+          
+          <!-- Project 2 -->
+          <div class="project-item">
+            <a href="project2.html">
+              <img src="project2.jpg" alt="Project 2" class="project-image">
+              <div class="project-info">
+                <h3>Swipe</h3>
+                <p class="project-subtitle">Human Centered Design</p>
+              </div>
+            </a>
+          </div>
+      
+          <!-- Project 3 -->
+          <div class="project-item">
+            <a href="project3.html">
+              <img src="project3.jpg" alt="Project 3" class="project-image">
+              <div class="project-info">
+                <h3>Other Academia </h3>
+                <p class="project-subtitle">Engineering and Data reports</p>
+              </div>
+            </a>
+          </div>
+
+          <!-- Project 4 -->
+          <div class="project-item">
+            <a href="project4.html">
+              <img src="project4.jpg" alt="Project 4" class="project-image">
+              <div class="project-info">
+                <h3>Hackathon</h3>
+                <p class="project-subtitle">Arduino</p>
+              </div>
+            </a>
+          </div>
+      
+      
+        </div>
+      </section>
+      
+
+        <!-- Add more projects here -->
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <p>Feel free to reach out to me through LinkedIn or email!</p>
+        <div class="contact-icons">
+            <a href="https://www.linkedin.com/in/judy-chourbaji-6a02ba2b1/" target="_blank" class="icon-link">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="mailto:judy.chourbaji23@imperial.ac.uk" class="icon-link">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const skillsLine = document.querySelector('.skills-line');
+        
+            // Clone the skill cards to create an infinite scroll effect
+            const clone = skillsLine.innerHTML;
+            skillsLine.innerHTML += clone;
+        
+            let scrollPosition = 0;
+        
+            function scrollSkills() {
+                scrollPosition -= 1; // The speed of the scroll (lower values make it slower)
+                if (Math.abs(scrollPosition) >= skillsLine.scrollWidth / 2) {
+                    // Reset to the start once half of the scroll is complete
+                    scrollPosition = 0;
+                }
+                skillsLine.style.transform = `translateX(${scrollPosition}px)`;
+                requestAnimationFrame(scrollSkills);
+            }
+        
+            scrollSkills(); // Start the scrolling animation
+        });
+        </script>
+    
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+        
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        </script>
+
+        
+        
+        
+</body>
+</html>
